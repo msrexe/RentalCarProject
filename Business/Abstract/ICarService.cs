@@ -1,4 +1,4 @@
-﻿using Entites;
+﻿using Entites.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,8 +9,8 @@ namespace Business.Abstract
     {
         List<Car> GetCars();
         Car GetById(Car car);
+        List<Car> GetCarsByBrandId(Car car);
+        List<Car> GetCarsByColorId(Car car);
         void Add(Car car);
-        void Update(Car car);
-        void Delete(Car car);
     }
 }

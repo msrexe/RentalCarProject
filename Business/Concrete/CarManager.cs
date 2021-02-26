@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using Entites;
+using Entites.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,17 +16,19 @@ namespace Business.Concrete
         }
         public void Add(Car car)
         {
-            _carDal.Add(car);
-        }
-
-        public void Delete(Car car)
-        {
-            _carDal.Delete(car);
+            if (car.Description.Length >= 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Araç açıklaması 2 karakterden az olamaz\nAraç günlük fiyatı 0 ve aşağısı olamaz");
+            }
         }
 
         public Car GetById(Car car)
         {
-            return _carDal.GetById(car.Id);
+            return _carDal.Get(c => c.Id == car.Id);
         }
 
         public List<Car> GetCars()
@@ -34,9 +36,14 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public void Update(Car car)
+        public List<Car> GetCarsByBrandId(Car car)
         {
-            _carDal.Update(car);
+            return _carDal.GetAll(c => c.BrandId == c.BrandId);
+        }
+
+        public List<Car> GetCarsByColorId(Car car)
+        {
+            return _carDal.GetAll(c => c.ColorId == car.ColorId);
         }
     }
 }
