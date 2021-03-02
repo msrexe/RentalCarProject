@@ -11,5 +11,8 @@ namespace Business.Constants
         public static string EntityDeleted = "Nesne silindi";
         public static string EntityNameInvalid = "Nesne adı geçersiz";
 
+        //RENTAL MESSAGES
+        public static string CarIsNotAvailable = "Araç kiralanmaya uygun değil";
+
     }
 }

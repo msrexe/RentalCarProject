@@ -38,7 +38,16 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-            
+
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer() { Id=1, UserId = 1, CompanyName = "ABCompany" });
+            customerManager.Add(new Customer() { Id=2, UserId = 2, CompanyName = "CDCompany" });
+            customerManager.Add(new Customer() { Id=3, UserId = 3, CompanyName = "EFCompany" });
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            rentalManager.Add(new Rental() { Id = 1, CarId = 4, CustomerId = 1, RentDate = DateTime.Now });
+            rentalManager.Add(new Rental() { Id = 2, CarId = 4, CustomerId = 2, RentDate = DateTime.Now });
+
         }
     }
 }
