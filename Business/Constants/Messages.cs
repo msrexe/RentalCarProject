@@ -14,5 +14,6 @@ namespace Business.Constants
         //RENTAL MESSAGES
         public static string CarIsNotAvailable = "Araç kiralanmaya uygun değil";
 
+        public static string ImagesLimitExceeded = "Araca en fazla 5 resim yükleyebilirsiniz";
     }
 }

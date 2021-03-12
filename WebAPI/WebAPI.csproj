@@ -12,5 +12,9 @@
     <ProjectReference Include="..\Business\Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Images\logo.png" />
+  </ItemGroup>
+
 
 </Project>
