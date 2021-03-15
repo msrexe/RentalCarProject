@@ -10,7 +10,13 @@ namespace Business.Constants
         public static string EntityUpdated = "Nesne güncellendi";
         public static string EntityDeleted = "Nesne silindi";
         public static string EntityNameInvalid = "Nesne adı geçersiz";
-
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string UserRegistered = "Kullanıcı kaydı oluşturuldu";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Hatalı parola";
+        public static string SuccessfulLogin = "Giriş başarılı";
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
+        public static string AccessTokenCreated = "Giriş anahtarı oluşturuldu";
         //RENTAL MESSAGES
         public static string CarIsNotAvailable = "Araç kiralanmaya uygun değil";
 

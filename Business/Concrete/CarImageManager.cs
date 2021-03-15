@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -24,6 +25,7 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
         }
 
+        [SecuredOperation("carimage.add,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
@@ -39,6 +41,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.EntityAdded);
         }
 
+        [SecuredOperation("carimage.delete,admin")]
         public IResult Delete(CarImage carImage)
         {
             FileHelper.Delete(carImage.ImagePath);
@@ -60,7 +63,7 @@ namespace Business.Concrete
             {
                 return (IDataResult<List<CarImage>>)result;
             }
-            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == id).ToList(), "resim bulundu");
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == id).ToList());
         }
 
         public IDataResult<List<CarImage>> GetCarImages()
@@ -68,7 +71,7 @@ namespace Business.Concrete
             var result = _carImageDal.GetAll();
             return new SuccessDataResult<List<CarImage>>(result);
         }
-
+        [SecuredOperation("carimage.update,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Update(IFormFile file, CarImage carImage)
         {
