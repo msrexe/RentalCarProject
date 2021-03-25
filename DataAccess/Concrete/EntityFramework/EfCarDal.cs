@@ -1,6 +1,7 @@
 ﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,10 @@ namespace DataAccess.Concrete.EntityFramework
                              on cars.BrandId equals brands.Id
                              select new CarDetailDto
                              {
-                                 CarId = cars.Id,
                                  BrandName = brands.Name,
-                                 CarName = cars.Description,
+                                 Description = cars.Description,
                                  ColorName = colors.Name,
+                                 ModelYear = cars.ModelYear,
                                  DailyPrice = cars.DailyPrice
                              };
                 return result.ToList();
