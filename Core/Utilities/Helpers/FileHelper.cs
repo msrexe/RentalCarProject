@@ -19,8 +19,11 @@ namespace Core.Utilities.Helpers
                     file.CopyTo(uploading);
                 }
             }
+            string path = Environment.CurrentDirectory + @"\wwwroot\Images";
+
             var result = newPath(file);
-            File.Move(sourcepath, result);
+            string full_path = $@"{path}\{result}";
+            File.Move(sourcepath, full_path);
             return result;
         }
         public static IResult Delete(string path)
@@ -54,11 +57,8 @@ namespace Core.Utilities.Helpers
             FileInfo ff = new FileInfo(file.FileName);
             string fileExtension = ff.Extension;
 
-            string path = Environment.CurrentDirectory + @"\wwwroot\Images";
             var newPath = Guid.NewGuid().ToString() + fileExtension;
-
-            string result = $@"{path}\{newPath}";
-            return result;
+            return newPath;
         }
 
     }

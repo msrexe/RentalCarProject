@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\b1b96c33-d5ed-47d3-b00c-ceb1a2adb6b0.jpg" />
     <None Include="wwwroot\Images\logo.png" />
   </ItemGroup>
 

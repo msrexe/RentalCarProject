@@ -25,7 +25,7 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
         }
 
-        [SecuredOperation("carimage.add,admin")]
+        //[SecuredOperation("carimage.add,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
@@ -104,7 +104,7 @@ namespace Business.Concrete
                 string path = @"\wwwroot\uploads\logo.jpg";
                 List<CarImage> carimages = new List<CarImage>();
                 carimages.Add(new CarImage { CarId = id, ImagePath = path, Date = DateTime.Now });
-                return new ErrorDataResult<List<CarImage>>(carimages);
+                return new SuccessDataResult<List<CarImage>>(carimages,Messages.ImageNotFound);
             }
             return new SuccessDataResult<List<CarImage>>();
 

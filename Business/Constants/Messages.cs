@@ -19,7 +19,7 @@ namespace Business.Constants
         public static string AccessTokenCreated = "Giriş anahtarı oluşturuldu";
         //RENTAL MESSAGES
         public static string CarIsNotAvailable = "Araç kiralanmaya uygun değil";
-
         public static string ImagesLimitExceeded = "Araca en fazla 5 resim yükleyebilirsiniz";
+        public static string ImageNotFound = "Araca ait resim bulunamadı";
     }
 }
